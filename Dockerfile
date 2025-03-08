@@ -11,9 +11,6 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Copy the .env file into the image
-COPY .env ./
-
 # Build the TypeScript code (assumes you have a build script defined)
 RUN npm run build
 
