@@ -24,5 +24,5 @@ export const RegisterMiddleware = (router: Router): void => {
     router.use(useragent.express());
 
     // 6. Logging Middleware
-    router.use(loggerMiddleware);
+    // router.use(loggerMiddleware);
 };
