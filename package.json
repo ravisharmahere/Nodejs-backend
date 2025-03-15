@@ -10,7 +10,7 @@
     "start:dev": "ts-node-dev --respawn --exit-child --watch src ./src/app.ts",
     "start:prod": "npm run clean && npm run build && npm start",
     "seed": "ts-node-dev src/seed/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ts-node-dev src/test/index.ts",
     "lint": "eslint 'src/**/*.{js,ts}'",
     "lint:fix": "eslint 'src/**/*.{js,ts}' --fix",
     "format": "prettier --write 'src/**/*.{js,ts,json}'"

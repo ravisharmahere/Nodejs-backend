@@ -9,7 +9,7 @@ export class UserRoutes {
         this.initRoutes();
     }
 
-    private initRoutes() {
+    private initRoutes(): void {
         this.router.get('/', this.controller.test);
     }
 }

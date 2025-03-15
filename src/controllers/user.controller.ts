@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import { asyncHandler } from '../helpers';
 import { logger } from '../utils';
 import { SuccessResponse } from '../core';
@@ -8,7 +8,7 @@ export class UserController {
         try {
             const data = 'Hello World';
             return new SuccessResponse('Success', data).send(res);
-        } catch (error: any) {
+        } catch (error: unknown) {
             logger.error(error);
             throw error;
         }

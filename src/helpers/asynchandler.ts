@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 
-type AsyncFunction = (req: any, res: Response, next: NextFunction) => Promise<any>;
+type AsyncFunction = (req: Request, res: Response, next: NextFunction) => Promise<unknown>;
 
-export const asyncHandler = (execution: AsyncFunction) => (req: Request, res: Response, next: NextFunction) =>
-    Promise.resolve(execution(req, res, next)).catch((error) => next(error));
+export const asyncHandler = (execution: AsyncFunction): ((req: Request, res: Response, next: NextFunction) => Promise<unknown>) =>
+    (req: Request, res: Response, next: NextFunction): Promise<unknown> =>
+        Promise.resolve(execution(req, res, next)).catch((error) => next(error));

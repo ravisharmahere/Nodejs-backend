@@ -5,8 +5,6 @@ import { UserModel } from '../models';
 class UserRepository {
     private readonly model = UserModel;
 
-    constructor() {}
-
     async createUser(user: User): Promise<User> {
         const newUser = new this.model(user);
         return await newUser.save();

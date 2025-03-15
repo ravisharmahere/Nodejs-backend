@@ -5,7 +5,7 @@ import { logger } from '../utils';
  * Logging Middleware
  * Logs incoming HTTP requests and outgoing responses.
  */
-export const loggerMiddleware = (req: Request, res: Response, next: NextFunction) => {
+export const loggerMiddleware = (req: Request, res: Response, next: NextFunction): void => {
     const { method, originalUrl } = req;
     const start = process.hrtime();
 

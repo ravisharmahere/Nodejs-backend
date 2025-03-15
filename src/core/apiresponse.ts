@@ -21,8 +21,8 @@ abstract class ApiResponse {
     private static sanitize<T extends ApiResponse>(response: T): T {
         const clone: T = {} as T;
         Object.assign(clone, response);
-        // @ts-ignore
-        delete clone.status;
+        // Using type assertion instead of @ts-ignore
+        (clone as Record<string, unknown>)["status"] = undefined;
         for (const i in clone) if (typeof clone[i] === 'undefined') delete clone[i];
         return clone;
     }

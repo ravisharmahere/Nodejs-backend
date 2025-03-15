@@ -22,20 +22,12 @@ export class Database {
     }
 
     async connect(): Promise<void> {
-        try {
-            await this.mongodb.connect();
-            await this.redis.connect();
-        } catch (error: any) {
-            throw error;
-        }
+        await this.mongodb.connect();
+        await this.redis.connect();
     }
 
     async disconnect(): Promise<void> {
-        try {
-            await this.mongodb.disconnect();
-            await this.redis.disconnect();
-        } catch (error: any) {
-            throw error;
-        }
+        await this.mongodb.disconnect();
+        await this.redis.disconnect();
     }
 }

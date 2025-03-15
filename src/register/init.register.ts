@@ -11,7 +11,7 @@ import { RegisterApiRoutes, RegisterErrorHandler, RegisterMiddleware } from '.';
  */
 
 export const initRoutes = (router: Router): void => {
-    const prefix: string = `/api/${apiVersion}`;
+    const prefix = `/api/${apiVersion}`;
     logger.info(`Initializing API routes on ${prefix}`);
     RegisterMiddleware(router);
     RegisterApiRoutes(router, prefix);
