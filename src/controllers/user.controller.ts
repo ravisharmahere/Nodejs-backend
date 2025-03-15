@@ -7,10 +7,7 @@ export class UserController {
     test = asyncHandler(async (req: Request, res: Response) => {
         try {
             const data = 'Hello World';
-            const a = 10;
-            const b = 20;
-            const result = a + b;
-            return new SuccessResponse('Success', { data, result }).send(res);
+            return new SuccessResponse('Success', data).send(res);
         } catch (error: unknown) {
             logger.error(error);
             throw error;
