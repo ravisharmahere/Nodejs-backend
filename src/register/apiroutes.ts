@@ -5,7 +5,7 @@ import { UserRoutes } from '../routes';
 
 export const RegisterApiRoutes = (router: Router, prefix: string): void => {
     router.get(prefix, (req: Request, res: Response) => {
-        res.send(`WELCOME TO MY PROJECT ${nodeEnv.toUpperCase()} ❤ PIYUSH`);
+        res.send(`WELCOME TO MY PROJECT ${nodeEnv.toUpperCase()} ❤`);
     });
 
     router.use(`${prefix}/test`, new UserRoutes().router);
