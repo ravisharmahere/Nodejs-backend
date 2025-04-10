@@ -14,7 +14,6 @@ logs/
 *.log
 
 # Editor directories and files
-.vscode/
 .idea/
 *.suo
 *.ntvs*
@@ -22,8 +21,9 @@ logs/
 *.sln
 
 # OS files
-.DS_Store
+.DS_Stores
 Thumbs.db
 
 # Other
 src/test
+files

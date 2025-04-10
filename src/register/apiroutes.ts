@@ -4,11 +4,11 @@ import { NotFoundError } from '../core';
 import { UserRoutes } from '../routes';
 
 export const RegisterApiRoutes = (router: Router, prefix: string): void => {
-    router.get(prefix, (req: Request, res: Response) => {
-        res.send(`WELCOME TO MY PROJECT ${nodeEnv.toUpperCase()} ❤`);
-    });
+  router.get(prefix, (req: Request, res: Response) => {
+    res.send(`WELCOME TO MY PROJECT ${nodeEnv.toUpperCase()} ❤`);
+  });
 
-    router.use(`${prefix}/test`, new UserRoutes().router);
+  router.use(`${prefix}/test`, new UserRoutes().router);
 
-    router.use((req: Request, res: Response, next: NextFunction) => next(new NotFoundError()));
+  router.use((req: Request, res: Response, next: NextFunction) => next(new NotFoundError()));
 };

@@ -10,10 +10,11 @@
     "start:dev": "ts-node-dev --respawn --exit-child --watch src ./src/app.ts",
     "start:prod": "npm run clean && npm run build && npm start",
     "seed": "ts-node-dev src/seed/index.ts",
-    "test": "ts-node-dev src/test/index.ts",
+    "test": "ts-node-dev src/test/test.ts",
     "lint": "eslint 'src/**/*.{js,ts}'",
     "lint:fix": "eslint 'src/**/*.{js,ts}' --fix",
-    "format": "prettier --write 'src/**/*.{js,ts,json}'"
+    "format": "prettier --write 'src/**/*.{js,ts,json,css,md,yml,yaml}'",
+    "format:check": "prettier --check 'src/**/*.{js,ts,json,css,md,yml,yaml}'"
   },
   "keywords": [],
   "author": "",

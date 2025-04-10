@@ -14,9 +14,20 @@ const logger = createLogger({
         format.printf(({ timestamp, level, message, stack }) => {
             const baseMessage = `${timestamp} [${level}]: ${message}`;
             if (level === 'error') {
-                const errorOrigin = stack && typeof stack === 'string' ? stack.split('\n')[1].match(/at (\S+) \((.+):(\d+):\d+\)/) : null;
-                const functionName = errorOrigin ? errorOrigin[1] : 'unknown';
-                const line = errorOrigin ? errorOrigin[3] : 'unknown';
+                let functionName = 'unknown';
+                let line = 'unknown';
+                
+                if (stack && typeof stack === 'string') {
+                    const stackLines = stack.split('\n');
+                    if (stackLines.length > 1) {
+                        const errorOrigin = stackLines[1].match(/at (\S+) \((.+):(\d+):\d+\)/);
+                        if (errorOrigin) {
+                            functionName = errorOrigin[1];
+                            line = errorOrigin[3];
+                        }
+                    }
+                }
+                
                 return `${baseMessage} [function]: ${functionName} [line]: ${line}`;
             }
             return baseMessage;
